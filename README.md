@@ -1,7 +1,7 @@
 # Aquila
 Send user interaction to **Google Analytics** servers without javascript tag.
 
-## Aquila help you to send information about 
+## Aquila help you to send many informations from your website
 
 * Page
 * Event
