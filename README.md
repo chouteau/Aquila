@@ -6,11 +6,14 @@ you can use **Aquila** with an AspNet website (WebForms or MVC) ou WinFoms/Wpf
 
 See : https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide
 
+![Aquila GAnalytics](/aquila.png)
+
 ## Where can I get it ?
 
 First, [install Nuget](http://docs.nuget.org/docs/start-here/installing-nuget) then, install [Aquila](http://www.nuget.org/packages/aquila) from the package manager console.
 
 > PM> Install-Package Aquila 
+
 
 ## Aquila help you to send many informations from your website
 
