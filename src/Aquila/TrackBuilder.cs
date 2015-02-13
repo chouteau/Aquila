@@ -33,7 +33,6 @@ namespace Aquila
 		protected virtual void ConfigureTrack()
 		{
 			m_Track.ProtocolVersion = "1";
-			// result.ApplicationId = System.Web.HttpRuntime.AppDomainAppId;
 			m_Track.TrackingId = m_Track.TrackingId ?? GlobalConfiguration.Configuration.Settings.TrackingId;
 			m_Track.CurrencyCode = m_Track.CurrencyCode ?? GlobalConfiguration.Configuration.Settings.CurrencyCode;
 		}
