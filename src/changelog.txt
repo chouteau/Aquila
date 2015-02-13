@@ -1,0 +1,6 @@
+﻿3.0.6.0
+- Change repository from codeplex to github
+- Change instanciation process
+
+
+

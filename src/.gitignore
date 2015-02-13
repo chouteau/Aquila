@@ -1,0 +1,11 @@
+/packages
+
+/TestResults
+/Aquila/bin
+/Aquila.Tests/bin
+/Aquila.Tests/obj
+
+/Aquila/obj
+/*.suo
+*.suo
+*.suo
