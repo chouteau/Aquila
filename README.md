@@ -1,4 +1,4 @@
-# Aquila (3.0.6)
+# Aquila (3.1.7)
 Send user interaction to **Google Analytics** servers without javascript tag.
 
 **Aquila** can by used with Microsoft .Net 4.5 (minimum).
