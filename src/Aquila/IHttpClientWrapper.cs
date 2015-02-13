@@ -9,6 +9,6 @@ namespace Aquila
 {
 	public interface IHttpClientWrapper
 	{
-		Task<HttpResponseMessage> PostAsync(string requestUri, HttpContent content);
+		Task<HttpResponseMessage> PostAsync(string requestUri, HttpContent content, string ua = null);
 	}
 }

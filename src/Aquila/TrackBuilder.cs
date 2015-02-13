@@ -85,6 +85,30 @@ namespace Aquila
 			}
 		}
 
+		public string UserAgentOverride
+		{
+			get
+			{
+				return m_Track.UserAgentOverride;
+			}
+			set
+			{
+				m_Track.UserAgentOverride = value;
+			}
+		}
+
+		public string IPOverride
+		{
+			get
+			{
+				return m_Track.IPOverride;
+			}
+			set
+			{
+				m_Track.IPOverride = value;
+			}
+		}
+
 		public virtual async Task SendAsync()
 		{
 			ConfigureTrack();
@@ -106,7 +130,7 @@ namespace Aquila
 		internal virtual async Task SendAsync(Track track)
 		{
 			var httpContent = track.GetBody();
-			await GlobalConfiguration.Configuration.HttpClientWrapper.PostAsync(GlobalConfiguration.Configuration.Settings.UrlEndPoint, httpContent).ContinueWith(task =>
+			await GlobalConfiguration.Configuration.HttpClientWrapper.PostAsync(GlobalConfiguration.Configuration.Settings.UrlEndPoint, httpContent, track.UserAgentOverride).ContinueWith(task =>
 			{
 				if (task.IsFaulted)
 				{

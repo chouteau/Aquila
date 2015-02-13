@@ -16,7 +16,7 @@ namespace Aquila.Tests
 			m_Action = action;
 		}
 
-		public Task<System.Net.Http.HttpResponseMessage> PostAsync(string requestUri, System.Net.Http.HttpContent content)
+		public Task<System.Net.Http.HttpResponseMessage> PostAsync(string requestUri, System.Net.Http.HttpContent content, string userAgent = null)
 		{
 			m_Action.Invoke(requestUri, content);
 

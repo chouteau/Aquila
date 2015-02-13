@@ -71,5 +71,16 @@ namespace Aquila
 			}
 		}
 
+		public string Referer
+		{
+			get
+			{
+				return m_Track.DocumentReferer;
+			}
+			set
+			{
+				m_Track.DocumentReferer = value;
+			}
+		}
 	}
 }

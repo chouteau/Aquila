@@ -14,11 +14,11 @@ namespace Aquila
 		public HttpClientWrapper()
 		{
 			m_HttpClient = new HttpClient();
-			m_HttpClient.DefaultRequestHeaders.Add("UserAgent", "TransparentAnalytics/1.0 (+https://developers.google.com)");
 		}
 
-		public async Task<HttpResponseMessage> PostAsync(string requestUri, HttpContent content)
+		public async Task<HttpResponseMessage> PostAsync(string requestUri, HttpContent content, string ua = null)
 		{
+			m_HttpClient.DefaultRequestHeaders.Add("UserAgent", ua ?? "Aquila/3.1.7 (+https://github.com/chouteau/Aquila)");
 			return await m_HttpClient.PostAsync(requestUri, content);
 		}
 

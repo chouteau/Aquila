@@ -1,4 +1,7 @@
-﻿3.0.6.0
+﻿3.1.7.0
+- Add UserAgentOverride and IPOverride properties in TrackBuilder
+
+3.0.6.0
 - Change repository from codeplex to github
 - Change instanciation process
 
