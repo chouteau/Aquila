@@ -1,6 +1,9 @@
 # Aquila (3.0.6)
 Send user interaction to **Google Analytics** servers without javascript tag.
 
+**Aquila** can by used with Microsoft .Net 4.5 (minimum).
+you can use **Aquila** with an AspNet website (WebForms or MVC) ou WinFoms/Wpf
+
 See : https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide
 
 ## Aquila help you to send many informations from your website
@@ -8,8 +11,6 @@ See : https://developers.google.com/analytics/devguides/collection/protocol/v1/d
 * Page
 * Event
 * Transaction
-
-You can use **Aquila** with Microsoft AspNet website
 
 ## Usage sample
 
@@ -91,13 +92,13 @@ TrackingId| null | The tracking ID / web property ID. The format is UA-XXXX-Y. A
 BanishedExtensions | .gif,.png,.bmp,.jpg,.js,.css | if you use automatic sending , this extensions does not sent
 CampaignParameterName | utm_campaign | name of parameter in url match the campaign
 
-## Configuration
+## Logging
 
-By default Aquila use System.Diagnostic for logging, you can use your own logger that way :
+By default Aquila use System.Diagnostic for logging, but you can use your own logger that way :
 
 ```c#
 
-public class AquilaLogger : ILogger
+public class AquilaLogger : Aquila.ILogger
 {
 	private YourLogger m_InnerLogger;
 
