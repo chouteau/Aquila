@@ -2,7 +2,7 @@
 Send user interaction to **Google Analytics** servers without javascript tag.
 
 **Aquila** can by used with Microsoft .Net 4.5 (minimum).
-you can use **Aquila** with an AspNet website (WebForms or MVC) ou WinFoms/Wpf
+you can use **Aquila** with an AspNet website (WebForms or MVC) or WinFoms/Wpf
 
 See : https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide
 
@@ -14,6 +14,9 @@ First, [install Nuget](http://docs.nuget.org/docs/start-here/installing-nuget) t
 
 > PM> Install-Package Aquila 
 
+With Microsoft Visual Studio :
+
+![Aquila Nuget](/nuget.png)
 
 ## Aquila help you to send many informations from your website
 
