@@ -24,5 +24,10 @@ namespace Aquila.Tests
 			response.Content = content;
 			return Task.FromResult(response);
 		}
+
+		public void Post(string requestUri, System.Net.Http.HttpContent content, string userAgent = null)
+		{
+			m_Action.Invoke(requestUri, content);
+		}
 	}
 }

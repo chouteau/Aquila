@@ -22,6 +22,18 @@ namespace Aquila
 			return await m_HttpClient.PostAsync(requestUri, content);
 		}
 
+		public void Post(string requestUri, HttpContent content, string ua = null)
+		{
+			m_HttpClient.DefaultRequestHeaders.Add("UserAgent", ua ?? "Aquila/3.1.7 (+https://github.com/chouteau/Aquila)");
+			var response = m_HttpClient.PostAsync(requestUri, content);
+			var result = response.Result;
+			if (result.StatusCode != System.Net.HttpStatusCode.OK)
+			{
+				GlobalConfiguration.Configuration.Logger.Warn("Fail to send track");
+			}
+		}
+
+
 		public void Dispose()
 		{
 			if (m_HttpClient != null)

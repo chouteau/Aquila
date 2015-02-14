@@ -1,4 +1,7 @@
-﻿3.1.7.0
+﻿3.2.8.0
+- Add synchronized send method for track
+
+3.1.7.0
 - Add UserAgentOverride and IPOverride properties in TrackBuilder
 - Add WinAquila Tester
 

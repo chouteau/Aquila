@@ -101,5 +101,31 @@ namespace Aquila.Tests
 			await track.SendAsync();
 		}
 
+
+		[TestMethod]
+		public void Send_Synchronized_Simple_PageView()
+		{
+			var page = "http://www.test.com/mypage/?param=abcd&param2=5.8";
+			var mq = MockHttpContextFactory.CreateMockHttpContext();
+			var mrquest = Moq.Mock.Get(mq.Object.Request);
+			mrquest.Setup(r => r.Url).Returns(new Uri(page));
+			mrquest.Setup(r => r.Path).Returns(new Uri(page).LocalPath);
+			var ctx = mq.Object;
+			GlobalConfiguration.Configuration.HttpClientWrapper = new MockHttpClientWrapper((url, httpContent) =>
+			{
+				var content = httpContent.ReadAsStringAsync().Result;
+				var kvList = content.Split('&').ToDictionary(k => k.Split('=')[0], v => v.Split('=')[1]);
+
+				Check.That(kvList).ContainsKey("t");
+				Check.That(kvList["t"]).IsEqualTo("pageview");
+				Check.That(kvList).ContainsKey("dl");
+				var unescapePage = System.Uri.UnescapeDataString(kvList["dl"]);
+				Check.That(unescapePage).IsEqualTo(page);
+			});
+
+			var track = new Aquila.PageTrack(ctx);
+			track.Send();
+		}
+
 	}
 }

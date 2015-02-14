@@ -109,6 +109,18 @@ namespace Aquila
 			}
 		}
 
+		public virtual void Send()
+		{
+			ConfigureTrack();
+			if (m_Track.TrackingId == null)
+			{
+				throw new Exception("TrackingId not configured");
+			}
+			m_Track.HitType = HitType;
+			var httpContent = m_Track.GetBody();
+			GlobalConfiguration.Configuration.HttpClientWrapper.Post(GlobalConfiguration.Configuration.Settings.UrlEndPoint, httpContent);
+		}
+
 		public virtual async Task SendAsync()
 		{
 			ConfigureTrack();
