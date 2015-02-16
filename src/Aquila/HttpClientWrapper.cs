@@ -9,37 +9,37 @@ namespace Aquila
 {
 	internal class HttpClientWrapper : IHttpClientWrapper, IDisposable
 	{
-		readonly HttpClient m_HttpClient;
-
 		public HttpClientWrapper()
 		{
-			m_HttpClient = new HttpClient();
 		}
 
 		public async Task<HttpResponseMessage> PostAsync(string requestUri, HttpContent content, string ua = null)
 		{
-			m_HttpClient.DefaultRequestHeaders.Add("UserAgent", ua ?? "Aquila/3.1.7 (+https://github.com/chouteau/Aquila)");
-			return await m_HttpClient.PostAsync(requestUri, content);
+			var httpClient = new HttpClient();
+			httpClient.DefaultRequestHeaders.Add("UserAgent", ua ?? "Aquila/3.1.7 (+https://github.com/chouteau/Aquila)");
+			return await httpClient.PostAsync(requestUri, content);
 		}
 
 		public void Post(string requestUri, HttpContent content, string ua = null)
 		{
-			m_HttpClient.DefaultRequestHeaders.Add("UserAgent", ua ?? "Aquila/3.1.7 (+https://github.com/chouteau/Aquila)");
-			var response = m_HttpClient.PostAsync(requestUri, content);
+			var httpClient = new HttpClient();
+			httpClient.DefaultRequestHeaders.Add("UserAgent", ua ?? "Aquila/3.1.7 (+https://github.com/chouteau/Aquila)");
+			var response = httpClient.PostAsync(requestUri, content);
 			var result = response.Result;
 			if (result.StatusCode != System.Net.HttpStatusCode.OK)
 			{
-				GlobalConfiguration.Configuration.Logger.Warn("Fail to send track");
+				var errorMessage = "Fail to send track" + System.Environment.NewLine;
+				errorMessage = errorMessage + "content:" + result.Content.ReadAsStringAsync().Result + System.Environment.NewLine;
+				foreach (var header in result.Headers)
+				{
+					errorMessage = errorMessage + "key" + header.Key + "=" + header.Value + System.Environment.NewLine;
+				}
+				GlobalConfiguration.Configuration.Logger.Error(errorMessage);
 			}
 		}
 
-
 		public void Dispose()
 		{
-			if (m_HttpClient != null)
-			{
-				m_HttpClient.Dispose();
-			}
 		}
 	}
 }
