@@ -109,16 +109,16 @@ namespace Aquila
 			}
 		}
 
-		public virtual void Send()
+		public string Referer
 		{
-			ConfigureTrack();
-			if (m_Track.TrackingId == null)
+			get
 			{
-				throw new Exception("TrackingId not configured");
+				return m_Track.DocumentReferer;
 			}
-			m_Track.HitType = HitType;
-			var httpContent = m_Track.GetBody();
-			GlobalConfiguration.Configuration.HttpClientWrapper.Post(GlobalConfiguration.Configuration.Settings.UrlEndPoint, httpContent);
+			set
+			{
+				m_Track.DocumentReferer = value;
+			}
 		}
 
 		public virtual async Task SendAsync()
@@ -149,6 +149,24 @@ namespace Aquila
 					GlobalConfiguration.Configuration.Logger.Error(task.Exception);
 				}
 			});
+		}
+
+		public virtual void Send()
+		{
+			ConfigureTrack();
+			if (m_Track.TrackingId == null)
+			{
+				throw new Exception("TrackingId not configured");
+			}
+			m_Track.HitType = HitType;
+			var httpContent = m_Track.GetBody();
+			GlobalConfiguration.Configuration.HttpClientWrapper.Post(GlobalConfiguration.Configuration.Settings.UrlEndPoint, httpContent);
+		}
+
+		internal virtual void Send(Track track)
+		{
+			var httpContent = track.GetBody();
+			GlobalConfiguration.Configuration.HttpClientWrapper.Post(GlobalConfiguration.Configuration.Settings.UrlEndPoint, httpContent);
 		}
 
 	}

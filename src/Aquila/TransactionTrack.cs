@@ -98,7 +98,23 @@ namespace Aquila
 				trackItem.ItemQuantity = item.Quantity;
 				trackItem.ItemCode = item.Code;
 				trackItem.ItemCategory = item.Category;
-				await SendAsync(trackItem);
+				await base.SendAsync(trackItem);
+			}
+		}
+
+		public override void Send()
+		{
+			base.Send();
+			foreach (var item in ItemList)
+			{
+				var trackItem = m_Track.Clone() as Track;
+				trackItem.HitType = "item";
+				trackItem.ItemName = item.Name;
+				trackItem.ItemPrice = item.PriceWithTax;
+				trackItem.ItemQuantity = item.Quantity;
+				trackItem.ItemCode = item.Code;
+				trackItem.ItemCategory = item.Category;
+				base.Send(trackItem);
 			}
 		}
 	}
