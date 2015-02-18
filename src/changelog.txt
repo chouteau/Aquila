@@ -1,4 +1,7 @@
-﻿3.2.8.0
+﻿3.4.11
+- Add Campaign decorator object for track
+
+3.2.8.0
 - Add synchronized send method for track
 
 3.1.7.0

@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AquilaConfiguration.cs" />
+    <Compile Include="Campaign.cs" />
     <Compile Include="DefaultTrack.cs" />
     <Compile Include="DiagnosticsLogger.cs" />
     <Compile Include="EventTrack.cs" />

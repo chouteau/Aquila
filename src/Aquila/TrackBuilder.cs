@@ -13,6 +13,7 @@ namespace Aquila
 		public TrackBuilder()
 		{
 			m_Track = new Track();
+			Campaign = new Campaign(m_Track);
 		}
 
 		public TrackBuilder(System.Web.HttpContextBase ctx)
@@ -120,6 +121,8 @@ namespace Aquila
 				m_Track.DocumentReferer = value;
 			}
 		}
+
+		public Campaign Campaign { get; private set;  }
 
 		public virtual async Task SendAsync()
 		{
