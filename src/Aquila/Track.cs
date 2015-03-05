@@ -14,6 +14,9 @@ namespace Aquila
 		internal Track()
 		{
 			AnonymizeIp = false;
+			ProductList = new List<ProductTrack>();
+			ProductImpressionList = new List<ProductImpressionTrack>();
+			PromotionList = new List<PromotionTrack>();
 		}
 
 		#region General
@@ -236,7 +239,6 @@ namespace Aquila
 
 		#region Content Information
 
-		// dl
 		/// <summary>
 		/// Use this parameter to send the full URL (document location) of the page on which content resides. You can use the &dh and &dp parameters to override the hostname and path + query portions of the document location, accordingly. The JavaScript clients determine this parameter using the concatenation of the document.location.origin + document.location.pathname + document.location.search browser parameters. Be sure to remove any user authentication or other private information from the URL if present.
 		/// </summary>
@@ -247,7 +249,6 @@ namespace Aquila
 		[Parameter("dl")]
 		public string DocumentLocationUrl { get; set; }
 
-		// dh
 		/// <summary>
 		/// Specifies the hostname from which content was hosted.
 		/// </summary>
@@ -258,7 +259,6 @@ namespace Aquila
 		[Parameter("dh")]
 		public string DocumentHostName { get; set; }
 
-		// dp
 		/// <summary>
 		/// The path portion of the page URL. Should begin with '/'.
 		/// </summary>
@@ -269,7 +269,6 @@ namespace Aquila
 		[Parameter("dp")]
 		public string DocumentPath { get; set; }
 
-		// dt
 		/// <summary>
 		/// The title of the page / document.
 		/// </summary>
@@ -280,7 +279,6 @@ namespace Aquila
 		[Parameter("dt")]
 		public string DocumentTitle { get; set; }
 
-		// cd
 		/// <summary>
 		/// If not specified, this will default to the unique URL of the page by either using the &dl parameter as-is or assembling it from &dh and &dp. App tracking makes use of this for the 'Screen Name' of the screenview hit.
 		/// </summary>
@@ -291,7 +289,6 @@ namespace Aquila
 		[Parameter("cd")]
 		public string ScreenName { get; set; }
 
-		// linkid
 		/// <summary>
 		/// The ID of a clicked DOM element, used to disambiguate multiple links to the same URL in In-Page Analytics reports when Enhanced Link Attribution is enabled for the property.
 		/// </summary>
@@ -483,14 +480,69 @@ namespace Aquila
 		#region Enhanced E-Commerce
 
 		/// <summary>
-		/// The SKU of the product. For analytics.js the Enhanced Ecommerce plugin must be installed before using this field.
+		/// The role of the products included in a hit. If a product action is not specified, all product definitions included with the hit will be ignored. Must be one of: detail, click, add, remove, checkout, checkout_option, purchase, refund. For analytics.js the Enhanced Ecommerce plugin must be installed before using this field.
 		/// </summary>
 		/// <example>
-		/// Example value: P12345
-		/// Example usage: pr[\d+]id=P12345
+		/// Example value: detail
+		/// Example usage: pa=detail
 		/// </example>
-		[Parameter(@"pr[\d+]id")]
-		public string ProductSKU { get; set; }
+		[Parameter(@"pa")]
+		public string ProductAction { get; set; }
+
+		/// <summary>
+		/// The list or collection from which a product action occurred. This is an additional parameter that can be sent when Product Action is set to 'detail' or 'click'. For analytics.js the Enhanced Ecommerce plugin must be installed before using this field.
+		/// </summary>
+		/// <example>
+		/// Example value: Search Results
+		/// Example usage: pal=Search%20Results
+		/// </example>
+		[Parameter(@"pal")]
+		public string ProductActionList { get; set; }
+
+		/// <summary>
+		/// List of product
+		/// </summary>
+		public IList<ProductTrack> ProductList { get; private set; }
+
+		/// <summary>
+		/// The role of the products included in a hit. If a product action is not specified, all product definitions included with the hit will be ignored. Must be one of: detail, click, add, remove, checkout, checkout_option, purchase, refund. For analytics.js the Enhanced Ecommerce plugin must be installed before using this field.
+		/// </summary>
+		/// <example>
+		/// Example value: 2
+		/// Example usage: cos=2
+		/// </example>
+		[Parameter(@"cos")]
+		public int CheckoutStep { get; set; }
+
+		/// <summary>
+		/// Additional information about a checkout step. This is an additional parameter that can be sent when Product Action is set to 'checkout'. For analytics.js the Enhanced Ecommerce plugin must be installed before using this field.
+		/// </summary>
+		/// <example>
+		/// Example value: Visa
+		/// Example usage: col=Visa
+		/// </example>
+		[Parameter(@"col")]
+		public string CheckoutStepOption { get; set; }
+
+		/// <summary>
+		/// List of product impression
+		/// </summary>
+		public IList<ProductImpressionTrack> ProductImpressionList { get; private set; }
+
+		/// <summary>
+		/// Specifies the role of the promotions included in a hit. If a promotion action is not specified, the default promotion action, 'view', is assumed. To measure a user click on a promotion set this to 'promo_click'. For analytics.js the Enhanced Ecommerce plugin must be installed before using this field.
+		/// </summary>
+		/// <example>
+		/// Example value: click
+		/// Example usage: promoa=click
+		/// </example>
+		[Parameter(@"promoa")]
+		public int PromotionAction { get; set; }
+
+		/// <summary>
+		/// List of promotions
+		/// </summary>
+		public IList<PromotionTrack> PromotionList { get; private set; }
 
 		#endregion
 

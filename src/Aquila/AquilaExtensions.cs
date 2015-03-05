@@ -9,7 +9,7 @@ namespace Aquila
 {
 	internal static class AquilaExtensions
 	{
-		internal static Dictionary<string, string> GetParameters(this Track track)
+		internal static Dictionary<string, string> GetTrackParameters(this object track)
 		{
 			var result = new Dictionary<string, string>();
 			var ci = new System.Globalization.CultureInfo("en-US");
@@ -47,9 +47,20 @@ namespace Aquila
 
 		internal static HttpContent GetBody(this Track track)
 		{
-			var parameters = track.GetParameters();
+			var parameters = track.GetTrackParameters();
 			var kv = (from p in parameters
-					  select string.Format("{0}={1}", p.Key, p.Value));
+					  select string.Format("{0}={1}", p.Key, p.Value)).ToList();
+
+			foreach (var product in track.ProductList)
+			{
+				var index = track.ProductList.IndexOf(product) + 1;
+				var kvp = (from p in product.GetTrackParameters()
+						   let key = p.Key.Replace("<index>", index.ToString())
+						   select string.Format("{0}={1}",key , p.Value));
+
+				kv.AddRange(kvp);
+			}
+
 			var query = string.Join("&", kv);
 
 			var httpContent = new StringContent(query);

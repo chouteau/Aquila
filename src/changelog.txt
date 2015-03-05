@@ -1,4 +1,7 @@
-﻿3.4.11
+﻿3.5.12
+- Add Enhanced eCommerce capabilities
+
+3.4.11
 - Add Campaign decorator object for track
 
 3.2.8.0

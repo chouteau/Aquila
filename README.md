@@ -1,4 +1,4 @@
-# Aquila (3.4.11)
+# Aquila (3.5.12)
 Send user interaction to **Google Analytics** servers without javascript tag.
 
 **Aquila** can by used with Microsoft .Net 4.5 (minimum).
@@ -70,6 +70,29 @@ track.ItemList.Add(new TransactionItem()
 	Category = "cat1",
 	Name = "item1Name",
 	PriceWithTax = 10.0m,
+	Quantity = 9
+});
+await track.SendAsync();
+
+```
+
+### Send Enhanced eCommerce Transaction to google analytics
+```c#
+
+var track = new Aquila.EnhancedTransactionTrack();
+track.TrackingId = "UA-XXXX-Y";
+track.UserId = Guid.NewId().ToString();
+track.TransactionId = "Tran01";
+track.Revenue = 90.0m;
+track.Shipping = 10.0m;
+track.Tax = 20.0m;
+track.ProductList.Add(new Product()
+{
+	Code = "item1",
+	Category = "cat1",
+	Name = "item1Name",
+	PriceWithTax = 10.0m,
+	Brand = "brand1",
 	Quantity = 9
 });
 await track.SendAsync();

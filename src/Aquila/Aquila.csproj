@@ -69,8 +69,14 @@
     <Compile Include="GlobalConfiguration.cs" />
     <Compile Include="ILogger.cs" />
     <Compile Include="PageTrack.cs" />
+    <Compile Include="ProductCustomDimension.cs" />
+    <Compile Include="ProductCustomMetric.cs" />
+    <Compile Include="ProductImpressionTrack.cs" />
+    <Compile Include="ProductTrack.cs" />
+    <Compile Include="PromotionTrack.cs" />
     <Compile Include="TrackBuilder.cs" />
     <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="TransactionItem.cs" />
     <Compile Include="HttpExtensions.cs" />
     <Compile Include="HttpClientWrapper.cs" />
@@ -81,6 +87,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Track.cs" />
     <Compile Include="AquilaExtensions.cs" />
+    <Compile Include="EnhancedTransactionTrack.cs" />
     <Compile Include="TransactionTrack.cs" />
   </ItemGroup>
   <ItemGroup>
