@@ -86,6 +86,18 @@ namespace Aquila
 			}
 		}
 
+		public string UserId
+		{
+			get
+			{
+				return m_Track.UserId;
+			}
+			set
+			{
+				m_Track.UserId = value;
+			}
+		}
+
 		public string UserAgentOverride
 		{
 			get
