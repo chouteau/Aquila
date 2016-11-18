@@ -1,20 +1,24 @@
-﻿3.5.12
+﻿##3.6.14.0
+- Update Automapper to V5.1.1
+- Add Microsoft.Web.Infrastructure nuget dependency
+
+##3.5.12
 - Add Enhanced eCommerce capabilities
 
-3.4.11
+##3.4.11
 - Add Campaign decorator object for track
 
-3.3.10
+##3.3.10
 - possibility of set the referer for transaction
 
-3.2.8.0
+##3.2.8.0
 - Add synchronized send method for track
 
-3.1.7.0
+##3.1.7.0
 - Add UserAgentOverride and IPOverride properties in TrackBuilder
 - Add WinAquila Tester
 
-3.0.6.0
+##3.0.6.0
 - Change repository from codeplex to github
 - Change instanciation process
 
