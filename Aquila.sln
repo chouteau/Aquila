@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aquila", "src\Aquila\Aquila.csproj", "{86178133-1BF5-4EB1-8110-441E4EECF979}"
 EndProject
@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinAquila", "src\WinAquila\WinAquila.csproj", "{65529B4A-BFDB-44DA-87D1-3BBA226070D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aquila.IISModule", "src\Aquila.IISModule\Aquila.IISModule.csproj", "{F128DC15-B2BE-4084-B989-B5D6B95D89D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{65529B4A-BFDB-44DA-87D1-3BBA226070D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65529B4A-BFDB-44DA-87D1-3BBA226070D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65529B4A-BFDB-44DA-87D1-3BBA226070D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F128DC15-B2BE-4084-B989-B5D6B95D89D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F128DC15-B2BE-4084-B989-B5D6B95D89D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F128DC15-B2BE-4084-B989-B5D6B95D89D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F128DC15-B2BE-4084-B989-B5D6B95D89D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
