@@ -21,6 +21,8 @@ namespace Aquila
 			bool isNewSession = false;
 			var clientId = ctx.GetOrSetClientId(GlobalConfiguration.Configuration.Settings.CookieName, out isNewSession);
 
+			GlobalConfiguration.ConfigureMapping();
+
 			m_Track = AutoMapper.Mapper.Map<System.Web.HttpContextBase, Track>(ctx, m_Track);
 			if (m_Track.ClientId == null)
 			{

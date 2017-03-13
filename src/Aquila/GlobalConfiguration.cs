@@ -9,17 +9,13 @@ namespace Aquila
 {
 	public class GlobalConfiguration
 	{
+		private static bool m_IsMapperInitialized;
 		private static Lazy<AquilaConfiguration> m_Configuration
 				= new Lazy<AquilaConfiguration>(() =>
 					{
 						var config = System.Configuration.ConfigurationManager.GetSection("aquila") as NameValueCollection;
 						var settings = new Settings();
 						settings.BindFromConfiguration(config);
-
-						if (settings.StartSelfAutoMapper)
-						{
-							ConfigureMapping();
-						}
 
 						return new AquilaConfiguration()
 						{
@@ -38,11 +34,22 @@ namespace Aquila
 			}
 		}
 
-		private static void ConfigureMapping()
+		internal static void ConfigureMapping()
 		{
+			if (!Configuration.Settings.StartSelfAutoMapper)
+			{
+				return;
+			}
+
+			if (m_IsMapperInitialized)
+			{
+				return;
+			}
+
 			AutoMapper.Mapper.Initialize(cfg =>
 					cfg.AddProfile(new AutoMapperProfile())
 			);
+			m_IsMapperInitialized = true;
 		}
 
 	}
