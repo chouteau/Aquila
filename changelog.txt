@@ -1,4 +1,8 @@
-﻿##3.7.15.0
+﻿##3.8.16
+- Fix bug with static automaper with other assemblies
+	add Automapper public profile
+
+##3.7.15.0
 - Remove dependency of Microsoft.Web.Infrastructure
 - Separate assembly need IISModule to Aquila.IISModule (1.0.0.0)
 

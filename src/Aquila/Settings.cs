@@ -23,6 +23,7 @@ namespace Aquila
 			GoogleDisplayAdsIdParamterName = "dclid";
 			AutoStart = false;
 			CurrencyCode = "EUR";
+			StartSelfAutoMapper = true;
 		}
 
 		public bool AutoStart { get; set; }
@@ -39,5 +40,6 @@ namespace Aquila
 		public string GoogleAdwordsParameterName { get; set; }
 		public string GoogleDisplayAdsIdParamterName { get; set; }
 		public string CurrencyCode { get; set; }
+		public bool StartSelfAutoMapper { get; set; }
 	}
 }
