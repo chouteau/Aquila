@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Aquila
+﻿namespace Aquila
 {
-	public class ProductImpressionTrack
+    public class ProductImpressionTrack
 	{
 		/// <summary>
 		/// The list or collection to which a product belongs. Impression List index must be a positive integer between 1 and 200, inclusive. For analytics.js the Enhanced Ecommerce plugin must be installed before using this field.

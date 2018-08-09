@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Aquila
 {
-	public interface ILogger
+    public interface ILogger
 	{
 		void Info(string message);
 		void Info(string message, params object[] prms);

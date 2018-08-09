@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aquila
 {
-	internal static class ObjectExtensions
+    internal static class ObjectExtensions
 	{
 		internal static void BindFromConfiguration(this object model, System.Collections.Specialized.NameValueCollection nvc)
 		{

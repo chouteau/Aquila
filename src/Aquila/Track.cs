@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aquila
 {
-	/// <summary>
-	/// see https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
-	/// </summary>
-	internal class Track : ICloneable
+    /// <summary>
+    /// see https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
+    /// </summary>
+    internal class Track : ICloneable
 	{
 		internal Track()
 		{

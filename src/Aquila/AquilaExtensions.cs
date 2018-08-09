@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aquila
 {
-	internal static class AquilaExtensions
+    internal static class AquilaExtensions
 	{
 		internal static Dictionary<string, string> GetTrackParameters(this object track)
 		{
@@ -33,7 +31,7 @@ namespace Aquila
 
 				var gparamter = attr as ParameterAttribute;
 				var parameterName = gparamter.ParameterName;
-				var parameterValue = System.Uri.EscapeDataString(Convert.ToString(value, ci));
+				var parameterValue = Uri.EscapeDataString(Convert.ToString(value, ci));
 
 				if (gparamter.MaxLength > 0)
 				{

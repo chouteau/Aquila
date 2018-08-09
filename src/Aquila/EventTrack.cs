@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Web;
 
 namespace Aquila
 {
-	public class EventTrack : TrackBuilder
+    public class EventTrack : TrackBuilder
 	{
 		public EventTrack() : base()
 		{

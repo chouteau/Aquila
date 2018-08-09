@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Aquila.Tests
 {
-	public class MockHttpClientWrapper : IHttpClientWrapper
+    public class MockHttpClientWrapper : IHttpClientWrapper
 	{
 		private Action<string, System.Net.Http.HttpContent> m_Action;
 

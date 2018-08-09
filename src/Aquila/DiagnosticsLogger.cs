@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
 
 namespace Aquila
 {
-	internal class DiagnosticsLogger : ILogger
+    internal class DiagnosticsLogger : ILogger
 	{
 		public void Info(string message)
 		{

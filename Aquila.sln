@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aquila", "src\Aquila\Aquila.csproj", "{86178133-1BF5-4EB1-8110-441E4EECF979}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aquila.Tests", "src\Aquila.Tests\Aquila.Tests.csproj", "{994ABAB9-2853-408A-BAC7-323B44C33F4F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{84B096BC-682C-4514-9962-81B109F75533}"
-	ProjectSection(SolutionItems) = preProject
+	ProjectSection(SolutionItems) = preProject		
 		changelog.txt = changelog.txt
 		README.md = README.md
 	EndProjectSection
@@ -42,5 +42,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A8E779C-FAC7-4742-B0B3-ECE28C0B0201}
 	EndGlobalSection
 EndGlobal

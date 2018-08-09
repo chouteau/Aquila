@@ -190,6 +190,5 @@ _Pvt_Extensions/
 ModelManifest.xml
 
 /nuget
-/.vs/ScrutR/v14
+/.vs
 /packages
-

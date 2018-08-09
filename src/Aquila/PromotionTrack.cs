@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Aquila
+﻿namespace Aquila
 {
-	internal class PromotionTrack
+    internal class PromotionTrack
 	{
 		/// <summary>
 		/// The promotion ID. Promotion index must be a positive integer between 1 and 200, inclusive. For analytics.js the Enhanced Ecommerce plugin must be installed before using this field.
