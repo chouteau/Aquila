@@ -1,15 +1,14 @@
 ﻿namespace Aquila
 {
     public class DefaultTrack : TrackBuilder
-	{
-		public DefaultTrack() : base()
-		{
+    {
+        public DefaultTrack() : base()
+        {
+        }
 
-		}
-
-		protected override string HitType
-		{
-			get { return "pageview"; }
-		}
-	}
+        protected override string HitType
+        {
+            get { return "pageview"; }
+        }
+    }
 }

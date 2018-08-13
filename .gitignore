@@ -189,6 +189,7 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 
+*.nupkg
 /nuget
 /.vs
 /packages

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Aquila</id>
+    <version>3.8.21</version>
+    <title>Aquila - Send user interaction to Google Analytics servers</title>
+    <authors>Marc Chouteau</authors>
+    <owners>Marc Chouteau</owners>
+    <projectUrl>https://github.com/chouteau/Aquila</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Google Analytics Measurement Protocol wrapper</summary>
+    <description>The Google Analytics Measurement Protocol allows developers to make HTTP requests to send raw user interaction data directly to Google Analytics servers with Dotnet. This allows developers to measure how users interact with their business from almost any environment.</description>
+    <releaseNotes>https://github.com/chouteau/Aquila/blob/master/changelog.txt</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Google Analytics Offline Measurement</tags>
+  </metadata>
+</package>

@@ -2,17 +2,17 @@
 
 namespace Aquila
 {
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple=false)]
-	internal class ParameterAttribute : Attribute
-	{
-		public ParameterAttribute(string name, int maxLength = 0)
-		{
-			this.ParameterName = name;
-			this.MaxLength = maxLength;
-		}
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    internal class ParameterAttribute : Attribute
+    {
+        public ParameterAttribute(string name, int maxLength = 0)
+        {
+            this.ParameterName = name;
+            this.MaxLength = maxLength;
+        }
 
-		public string ParameterName { get; set; }
+        public string ParameterName { get; set; }
 
-		public int MaxLength { get; set; }
-	}
+        public int MaxLength { get; set; }
+    }
 }
