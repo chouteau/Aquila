@@ -189,7 +189,7 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 
+*.nupkg
 /nuget
-/.vs/ScrutR/v14
+/.vs
 /packages
-
