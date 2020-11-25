@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Aquila</AssemblyName>
+    <RootNamespace>Aquila</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Aquila\Campaign.cs" Link="Campaign.cs" />
+    <Compile Include="..\Aquila\ParameterAttribute.cs" Link="ParameterAttribute.cs" />
+    <Compile Include="..\Aquila\Product.cs" Link="Product.cs" />
+    <Compile Include="..\Aquila\ProductCustomDimension.cs" Link="ProductCustomDimension.cs" />
+    <Compile Include="..\Aquila\ProductCustomMetric.cs" Link="ProductCustomMetric.cs" />
+    <Compile Include="..\Aquila\ProductImpressionTrack.cs" Link="ProductImpressionTrack.cs" />
+    <Compile Include="..\Aquila\ProductTrack.cs" Link="ProductTrack.cs" />
+    <Compile Include="..\Aquila\PromotionTrack.cs" Link="PromotionTrack.cs" />
+    <Compile Include="..\Aquila\Settings.cs" Link="Settings.cs" />
+    <Compile Include="..\Aquila\Track.cs" Link="Track.cs" />
+    <Compile Include="..\Aquila\TransactionItem.cs" Link="TransactionItem.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+
+</Project>

@@ -8,16 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Microsoft.Extensions.DependencyInjection;
+
 namespace WinAquila
 {
 	public partial class MainForm : Form
 	{
 		private Settings m_Settings;
 
-		public MainForm()
+		public MainForm(IServiceProvider serviceProvider)
 		{
+			this.ServiceProvider = serviceProvider;
 			InitializeComponent();
 		}
+
+		protected IServiceProvider ServiceProvider { get; }
 
 		protected override void OnLoad(EventArgs e)
 		{
@@ -48,7 +53,7 @@ namespace WinAquila
 
 		private Aquila.TrackBuilder CreatePageTrack()
 		{
-			var track = new Aquila.PageTrack();
+			var track = ServiceProvider.GetService<Aquila.PageTrack>();
 			track.TrackingId = uxTrackerIdTextBox.Text;
 			track.ClientId = Guid.NewGuid().ToString();
 
