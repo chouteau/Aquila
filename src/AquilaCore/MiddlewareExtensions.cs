@@ -25,6 +25,12 @@ namespace Aquila
 			services.AddTransient<DefaultTrack>();
 			services.AddTransient<TransactionTrack>();
 
+			services.AddTransient<IClientIdGenerator, ClientIdCookieGenerator>();
+			services.AddTransient<IClientIdGenerator, BrowserIdClientIdGenerator>();
+			services.AddTransient<ClientIdFactory>();
+
+			services.AddMemoryCache();
+
 			return services;
 		}
 	}

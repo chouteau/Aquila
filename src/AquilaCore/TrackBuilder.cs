@@ -22,11 +22,13 @@ namespace Aquila
 		public TrackBuilder(
 			Settings settings,
 			ILogger logger,
-			TrackSender trackSender)
+			TrackSender trackSender,
+			ClientIdFactory clientIdFactory)
 		{
 			this.Settings = settings;
 			this.Logger = logger;
 			this.TrackSender = trackSender;
+			this.ClientIdFactory = clientIdFactory;
 
 			try
 			{
@@ -42,6 +44,7 @@ namespace Aquila
 		protected Settings Settings { get; }
 		protected ILogger Logger { get; }
 		protected TrackSender TrackSender { get; }
+		protected ClientIdFactory ClientIdFactory { get; }
 
 		protected abstract string HitType { get; }
 
@@ -129,7 +132,7 @@ namespace Aquila
 			}
 		}
 
-		public string Referer
+		public virtual string Referer
 		{
 			get
 			{
@@ -166,9 +169,13 @@ namespace Aquila
 
 		private void BindTrackFromHttpContext(Track track, HttpContext httpContext)
 		{
-			var ck = httpContext.GetOrSetClientId(Settings.CookieName);
-			track.ClientId = ck.clientId;
-			track.SessionControl = "start";
+
+			var clientInfo = ClientIdFactory.GetClientInfo(httpContext);
+			track.ClientId = clientInfo.Id;
+			if (clientInfo.IsNewSession)
+			{
+				track.SessionControl = "start";
+			}
 
 			track.UserId = httpContext.User.Identity.IsAuthenticated ? httpContext.User.Identity.Name : null;
 

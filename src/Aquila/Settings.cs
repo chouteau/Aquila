@@ -24,6 +24,7 @@ namespace Aquila
 			AutoStart = false;
 			CurrencyCode = "EUR";
 			StartSelfAutoMapper = true;
+			UseBrowserId = true;
 		}
 
 		public bool AutoStart { get; set; }
@@ -41,5 +42,6 @@ namespace Aquila
 		public string GoogleDisplayAdsIdParamterName { get; set; }
 		public string CurrencyCode { get; set; }
 		public bool StartSelfAutoMapper { get; set; }
+		public bool UseBrowserId { get; set; }
 	}
 }

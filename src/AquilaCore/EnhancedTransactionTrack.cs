@@ -14,8 +14,9 @@ namespace Aquila
 		public EnhancedTransactionTrack(
 			Settings settings,
 			ILogger<TrackBuilder> logger,
-			TrackSender trackSender)
-			: base(settings, logger, trackSender)
+			TrackSender trackSender,
+			ClientIdFactory clientIdFactory)
+			: base(settings, logger, trackSender, clientIdFactory)
 		{
 			ProductList = new List<Product>();
 		}

@@ -12,8 +12,9 @@ namespace Aquila
 		public TransactionTrack(
 			Settings settings,
 			ILogger<TrackBuilder> logger,
-			TrackSender trackSender)
-			: base(settings, logger, trackSender)
+			TrackSender trackSender,
+			ClientIdFactory clientIdFactory)
+			: base(settings, logger, trackSender, clientIdFactory)
 		{
 			ItemList = new List<TransactionItem>();
 		}
