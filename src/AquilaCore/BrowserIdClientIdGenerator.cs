@@ -29,7 +29,7 @@ namespace Aquila
 			browserId.AcceptEncoding = string.Join('|', typedHeaders.AcceptEncoding);
 			browserId.AcceptLanguage = string.Join('|', typedHeaders.AcceptLanguage);
 			browserId.AcceptCharset = string.Join('|', typedHeaders.AcceptCharset);
-			browserId.UpgradeInsecureRequest = $"{httpContext.Request.Headers["upgrate-insecure-request"]}";
+			browserId.UpgradeInsecureRequest = $"{httpContext.Request.Headers["upgrade-insecure-request"]}";
 
 			var result = new ClientInfo();
 			result.Id = browserId.GetSHA256();
