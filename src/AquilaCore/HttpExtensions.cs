@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.Primitives;
 
 namespace Aquila
 {
@@ -47,9 +48,23 @@ namespace Aquila
 			return null;
 		}
 
-		internal static string GetUserHostAddress(this HttpContext httpContext)
+		internal static string GetUserHostAddress(this HttpContext context)
 		{
-			return $"{httpContext.Features.Get<IHttpConnectionFeature>()?.RemoteIpAddress}";
+			string userHostAddress;
+			if (context.Request.Headers.TryGetValue("X-Forwarded-For", out StringValues value))
+			{
+				userHostAddress = value.FirstOrDefault();
+			}
+			else if (context.Request.Headers.TryGetValue("X-Remote-Ip", out value))
+			{
+				userHostAddress = value.FirstOrDefault();
+			}
+			else
+			{
+				userHostAddress = context.Connection.RemoteIpAddress.ToString();
+			}
+
+			return userHostAddress;
 		}
 
 		internal static string GetUserAgent(this HttpContext httpContext)
