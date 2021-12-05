@@ -61,7 +61,7 @@ namespace Aquila
 			}
 			else
 			{
-				userHostAddress = context.Connection.RemoteIpAddress.ToString();
+				userHostAddress = $"{context.Connection.RemoteIpAddress}";
 			}
 
 			return userHostAddress;

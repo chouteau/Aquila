@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,23 @@ namespace Aquila
 			services.AddTransient<ClientIdFactory>();
 
 			services.AddMemoryCache();
+
+			var version = typeof(MiddlewareExtensions).Assembly.GetName().Version.ToString();
+			services.AddHttpClient("GA")
+				.ConfigureHttpClient(configure =>
+				{
+					configure.DefaultRequestHeaders.UserAgent.ParseAdd($"AquilaCore/{version} (+https://github.com/chouteau/Aquila)");
+					configure.Timeout = TimeSpan.FromSeconds(5);
+				})
+				.ConfigurePrimaryHttpMessageHandler(() =>
+				{
+					var handler = new HttpClientHandler()
+					{
+						AllowAutoRedirect = false,
+						UseCookies = false
+					};
+					return handler;
+				});
 
 			return services;
 		}

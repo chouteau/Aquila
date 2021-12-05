@@ -11,31 +11,26 @@ namespace Aquila
 	public class TrackSender
 	{
 		public TrackSender(Settings settings,
-			ILogger<TrackSender> logger)
+			ILogger<TrackSender> logger,
+			IHttpClientFactory httpClientFactory)
 		{
 			this.Settings = settings;
 			this.Logger = logger;
+			this.HttpClientFactory = httpClientFactory;
 		}
 
 		protected Settings Settings { get; }
 		protected ILogger<TrackSender> Logger { get; }
+		protected IHttpClientFactory HttpClientFactory { get; }
 
 		internal virtual async Task SendAsync(Track track)
 		{
 			if (track.TrackingId == null)
 			{
-				throw new Exception("TrackingId not configured");
+				throw new KeyNotFoundException("TrackingId not configured");
 			}
 
-			var handler = new HttpClientHandler()
-			{
-				AllowAutoRedirect = false,
-				UseCookies = false
-			};
-
-			var httpClient = new HttpClient(handler);
-			httpClient.DefaultRequestHeaders.Add("UserAgent", "AquilaCore/5.0.1 (+https://github.com/chouteau/Aquila)");
-			httpClient.Timeout = TimeSpan.FromSeconds(5);
+			var httpClient = HttpClientFactory.CreateClient("GA");
 
 			var httpContent = GetBodyContent(track);
 			var response = await httpClient.PostAsync(Settings.UrlEndPoint, httpContent);
@@ -47,8 +42,7 @@ namespace Aquila
 			{
 				Logger.LogError(ex, ex.Message);
 			}
-			var result = await response.Content.ReadAsStringAsync();
-
+			await response.Content.ReadAsStringAsync();
 		}
 
 		private HttpContent GetBodyContent(Track track)

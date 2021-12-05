@@ -41,6 +41,7 @@ namespace Aquila.Tests
 			context.Request.Scheme = page.Scheme;
 			context.Request.Host = new HostString(page.Host);
 			context.Request.Path = new PathString(page.PathAndQuery);
+			context.Connection.RemoteIpAddress = System.Net.IPAddress.Parse("8.8.8.8");
 
 			var track = ServiceProvider.GetRequiredService<Aquila.PageTrack>();
 			await track.SendAsync(context);
